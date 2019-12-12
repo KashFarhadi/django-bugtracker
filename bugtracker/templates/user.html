@@ -1,0 +1,52 @@
+<a href='/'><button>Home</button></a>
+
+username: {{user.username}}, UserId:{{user.id}}
+
+<ul>
+    <h1> Submitted Tickets</h1>
+    {% for data in submitted_by %}
+    <h2>
+        {{ title }}
+        <a href= 'editticket/{{data.id}}'><button>Edit</button></a>
+        <a href='ticket/{{data.id}}'><button>View Ticket</button></a>  
+    </h2>
+    <li>Description: {{data.description}}</li>
+    <li>Status: {{data.status}}</li>
+    <li>Submitted by: {{data.submitted_by}}</li>
+    <li>Assigned to: {{data.assigned_to}}</li>
+    <li>Completed by: {{data.completed_by}}</li>
+    <li>Date created: {{data.date_created}}</li>
+    {% endfor %}
+ 
+    <h1> Assigned Tickets</h1>
+    {% for data in assigned_to %}
+    <h2>
+         {{data.title}}
+         <a href= 'editticket/{{data.id}}'><button>Edit</button></a>
+         <a href='ticket/{{data.id}}'><button>View Ticket</button></a>  
+     </h2>
+     <li>title: {{data.title}}</li>
+     <li>Description: {{data.description}}</li>
+     <li>Status: {{data.status}}</li>
+     <li>Submitted by: {{data.submitted_by}}</li>
+     <li>Assigned to: {{data.assigned_to}}</li>
+     <li>Completed by: {{data.completed_by}}</li>
+     <li>Date created: {{data.date_created}}</li>
+     {% endfor %}
+
+    <h1>Completed Tickets</h1>
+    {% for data in completed_by %}
+    <h2>
+        {{data.title}}
+        <a href= 'editticket/{{data.id}}'><button>Edit</button></a>
+        <a href='ticket/{{data.id}}'><button>View Ticket</button></a>  
+    </h2>
+   <li>title: {{data.title}}</li>
+   <li>Description: {{data.description}}</li>
+   <li>Status: {{data.status}}</li>
+   <li>Submitted by: {{data.submitted_by}}</li>
+   <li>Assigned to: {{data.assigned_to}}</li>
+   <li>Completed by: {{data.completed_by}}</li>
+   <li>Date created: {{data.date_created}}</li>
+    {% endfor %}
+

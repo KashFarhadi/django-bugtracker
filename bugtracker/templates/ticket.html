@@ -1,0 +1,18 @@
+<a href='/'><button>Home</button></a>
+<a href='/createticket/'><button>Create Tickets Here</button></a>
+
+<h3>Check out this Ticket</h3>
+
+<ul>
+    {% for data in ticket %}
+        <h1>Title: {{data.title}}</h1>
+        <h3>Description: {{data.description}}</h3>
+        <h3>Status: {{data.status}}</h3>
+        <h3>Submitted by: {{data.submitted_by}}</h3>
+        <h3>Assigned to: {{data.assigned_to}}</h3>
+        <h3>Completed by: {{data.completed_by}}</h3>
+        <h3>Date created: {{data.date_created}}</h3>
+    {% endfor %}
+</ul>
+
+
