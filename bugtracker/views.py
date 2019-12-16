@@ -47,17 +47,18 @@ def logout_view(request):
 
 @login_required
 def signup_view(request):
-    html = 'form.html'
-
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
             return HttpResponseRedirect('/')
- 
     else:
         form = SignUpForm()
-    return render(request, html, {'form': form})
+    return render(request, 'form.html', {'form': form})
 
 @login_required
 def ticket_view(request, id):
